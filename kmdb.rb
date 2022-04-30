@@ -108,18 +108,21 @@ Movie_new = Movie.new
 Movie_new["title"] = "Batman Begins"
 Movie_new["year_released"] = "2005"
 Movie_new["rated"] = "PG-13"
+Movie_new["studio_id"] = "1"
 Movie_new.save
 
 Movie_new = Movie.new
 Movie_new["title"] = "The Dark Knight"
 Movie_new["year_released"] = "2008"
 Movie_new["rated"] = "PG-13"
+Movie_new["studio_id"] = "1"
 Movie_new.save
 
 Movie_new = Movie.new
 Movie_new["title"] = "The Dark Knight Rises"
 Movie_new["year_released"] = "2012"
 Movie_new["rated"] = "PG-13"
+Movie_new["studio_id"] = "1"
 Movie_new.save
 
 puts "Movies: #{Movie.all.count}" 
@@ -289,6 +292,12 @@ puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
+
+Studio_Test = Studio.where({ "name" => "Warner Bros" })
+puts Studio_Test
+
+Movies_Data = Movie.where({["studio_id"] => Studio_Test["id"] })
+puts Movies_Data.inspect
 
 # Prints a header for the cast output
 puts ""
