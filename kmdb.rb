@@ -277,7 +277,10 @@ Role_new["movie_id"] = "3"
 Role_new["actor_id"] = "11"
 Role_new["character_name"] = "Selina Kyle"
 Role_new.save
+
 puts "Roles: #{Role.all.count}" 
+
+
 
 # Prints a header for the movies output
 puts "Movies"
