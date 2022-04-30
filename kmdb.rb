@@ -70,13 +70,38 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
+
+#1. rails generate model Studio
+#t.string "name"
+#2. rails generate model Movie
+#t.string "title"
+#t.integer "year_released"
+#t.string "rated"
+#t.integer "studio_id"
+#3. rails generate model Actor
+#t.string "name"
+#4. rails generate model Role
+#t.integer "movie_id"
+#t.integer "actor_id"
+#t.string "character_name"
+
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
 # TODO!
+
+#Studio
+Studio_new = Studio.new
+Studio_new["name"] = "Warner Bros"
+Studio_new.save
+
+puts "Studios: #{Studio.all.count}" 
 
 # Prints a header for the movies output
 puts "Movies"
