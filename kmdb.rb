@@ -170,7 +170,7 @@ Joseph_Gordon_Levitt["name"] = "Joseph Gordon-Levitt"
 Joseph_Gordon_Levitt.save
 
 Anne_Hathaway = Actor.new
-Anne_Hathaway ["name"] = "Anne Hathaway"
+Anne_Hathaway["name"] = "Anne Hathaway"
 Anne_Hathaway.save
 
 puts "Actors: #{Actor.all.count}" 
@@ -256,7 +256,7 @@ Role_13.save
 
 Role_14 = Role.new
 Role_14["movie_id"] = The_Dark_Knight_Rises["id"]
-Role_14["actor_id"] = Joseph_Gordon_Levitt ["id"]
+Role_14["actor_id"] = Joseph_Gordon_Levitt["id"]
 Role_14["character_name"] = "John Blake"
 Role_14.save
 
@@ -276,12 +276,23 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-Studio_Test = Studio.where({ "name" => "Warner Bros" })
-puts Studio_Test
+# Studio_Test = Studio.find_by({ "name" => "Warner Bros" })
+# puts Studio_Test.inspect
 
 
-Movies_Data = Movie.where({["studio_id"] => Studio_Test["id"] })
-puts Movies_Data.inspect
+# Movies_Data = Movie.where({"studio_id" => Studio_Test["id"] })
+# puts Movies_Data.inspect
+
+movies_all = Movie.all
+# puts movies_all
+
+for movie in movies_all
+    #puts movie.inspect
+    #puts movie["title"]
+    studio_movie = Studio.find_by({"id" => movie["studio_id"]})
+    puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} #{studio_movie["name"]}"
+end
+
 
 # Prints a header for the cast output
 puts ""
@@ -291,3 +302,12 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+roles_all = Role.all
+# puts movies_all
+
+for roles in roles_all
+    role_movie = Movie.find_by({"id" => roles["movie_id"]})
+    actor_role = Actor.find_by({"id" => roles["actor_id"]})
+    puts "#{role_movie["title"]} #{actor_role["name"]} #{actor_role["character_name"]}"
+end
