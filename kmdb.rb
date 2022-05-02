@@ -276,12 +276,6 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
-# Studio_Test = Studio.find_by({ "name" => "Warner Bros" })
-# puts Studio_Test.inspect
-
-
-# Movies_Data = Movie.where({"studio_id" => Studio_Test["id"] })
-# puts Movies_Data.inspect
 
 movies_all = Movie.all
 # puts movies_all
@@ -304,7 +298,7 @@ puts ""
 # TODO!
 
 roles_all = Role.all
-# puts movies_all
+# puts roles_all
 
 for roles in roles_all
     role_movie = Movie.find_by({"id" => roles["movie_id"]})
