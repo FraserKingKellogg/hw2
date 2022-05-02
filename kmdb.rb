@@ -100,28 +100,27 @@ Role.destroy_all
 Warner_Bros = Studio.new
 Warner_Bros["name"] = "Warner Bros"
 Warner_Bros.save
-puts Warner_Bros["id"]
 
 puts "Studios: #{Studio.all.count}" 
 
 #Movie
 Batman_Begins = Movie.new
 Batman_Begins["title"] = "Batman Begins"
-Batman_Begins["year_released"] = "2005"
+Batman_Begins["year_released"] = 2005
 Batman_Begins["rated"] = "PG-13"
 Batman_Begins["studio_id"] = Warner_Bros["id"]
 Batman_Begins.save
 
 The_Dark_Knight = Movie.new
 The_Dark_Knight["title"] = "The Dark Knight"
-The_Dark_Knight["year_released"] = "2008"
+The_Dark_Knight["year_released"] = 2008
 The_Dark_Knight["rated"] = "PG-13"
 The_Dark_Knight["studio_id"] = Warner_Bros["id"]
 The_Dark_Knight.save
 
 The_Dark_Knight_Rises = Movie.new
 The_Dark_Knight_Rises["title"] = "The Dark Knight Rises"
-The_Dark_Knight_Rises["year_released"] = "2012"
+The_Dark_Knight_Rises["year_released"] = 2012
 The_Dark_Knight_Rises["rated"] = "PG-13"
 The_Dark_Knight_Rises["studio_id"] = Warner_Bros["id"]
 The_Dark_Knight_Rises.save
