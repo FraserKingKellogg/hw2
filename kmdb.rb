@@ -280,8 +280,6 @@ movies_all = Movie.all
 # puts movies_all
 
 for movie in movies_all
-    #puts movie.inspect
-    #puts movie["title"]
     studio_movie = Studio.find_by({"id" => movie["studio_id"]})
     puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} #{studio_movie["name"]}"
 end
